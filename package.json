@@ -19,6 +19,7 @@
     },
     "type": "module",
     "dependencies": {
+        "@fontsource/exo": "^5.0.18",
         "@fontsource/inter": "^5.0.20",
         "@fortawesome/fontawesome-free": "^6.6.0",
         "bulma": "^1.0.2",
