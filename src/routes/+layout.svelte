@@ -10,27 +10,26 @@
 	});
 </script>
 
-<div class="main-container">
-	<div class="area">
-		<ul class="circles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-		<Navbar />
-		<slot />
-		<Footer />
-	</div>
+<div class="area">
+	<ul class="circles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<Navbar />
+	<slot />
 </div>
+
+<Footer />
 
 <style lang="scss">
 	@import '/styles/global.scss';

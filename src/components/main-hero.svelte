@@ -1,6 +1,5 @@
 <section class="hero has-text-centered">
 	<div class="hero-body">
-		<!-- <div class="card"> -->
 		<div class="columns">
 			<div class="column">
 				<img class="logo" src="/images/skycrane.svg" alt="Skycrane Logo" />
@@ -8,17 +7,17 @@
 		</div>
 		<div class="columns">
 			<div class="column">
-				<p class="title is-text-dark-blue">Skycrane</p>
+				<p class="title has-text-white">Skycrane</p>
 			</div>
 		</div>
 		<div class="columns">
 			<div class="column">
-				<p class="subtitle is-text-light is-text-dark-blue">Infrastructure as Code 2.0</p>
+				<p class="subtitle has-text-light has-text-white">Infrastructure as Code 2.0</p>
 			</div>
 		</div>
 		<div class="columns">
 			<div class="column">
-				<block class="block is-text-light-green">
+				<block class="block has-text-white">
 					Skycrane is an Infrastructure as Code (IaC) tool that uses WASI plugins to securely and
 					efficiently manage cloud resources across multiple providers.
 				</block>
@@ -46,6 +45,5 @@
 				</a>
 			</div>
 		</div>
-		<!-- </div> -->
 	</div>
 </section>
