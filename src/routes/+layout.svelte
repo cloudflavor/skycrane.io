@@ -10,26 +10,28 @@
 	});
 </script>
 
-<div class="main-container">
-	<div class="area">
-		<ul class="circles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+<div class="area is-flex is-flex-direction-column">
+	<ul class="circles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<section class="section">
 		<Navbar />
+	</section>
+	<section class="section pt-0">
 		<slot />
-		<Footer />
-	</div>
+	</section>
+	<Footer />
 </div>
 
 <style lang="scss">
