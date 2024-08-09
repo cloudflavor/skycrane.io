@@ -10,7 +10,7 @@
 	});
 </script>
 
-<div class="area">
+<div class="area is-flex is-flex-direction-column">
 	<ul class="circles">
 		<li></li>
 		<li></li>
@@ -25,11 +25,14 @@
 		<li></li>
 		<li></li>
 	</ul>
-	<Navbar />
-	<slot />
+	<section class="section">
+		<Navbar />
+	</section>
+	<section class="section pt-0">
+		<slot />
+	</section>
+	<Footer />
 </div>
-
-<Footer />
 
 <style lang="scss">
 	@import '/styles/global.scss';

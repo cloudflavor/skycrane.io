@@ -1,5 +1,5 @@
-<footer class="footer mt-6">
-	<div class="content has-text-centered">
+<footer class="footer">
+	<div class="container content has-text-centered">
 		<p>
 			<strong>Skycrane</strong> by <a href="https://cloudflavor.io">Cloudflavor</a>. The source code
 			is licensed

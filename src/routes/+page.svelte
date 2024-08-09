@@ -3,5 +3,11 @@
 	import Install from '../components/install.svelte';
 </script>
 
-<MainHero />
-<Install />
+<div class="container">
+	<section class="section">
+		<MainHero />
+	</section>
+	<section class="section">
+		<Install />
+	</section>
+</div>

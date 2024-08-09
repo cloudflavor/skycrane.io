@@ -11,11 +11,17 @@
 	});
 </script>
 
-<div class="box is-rounded pl-6 pr-6 pt-1 ml-6 mr-6 mt-6">
-	<div class="hero is-small mt-6 is-rounded">
-		<div class="hero-body">
-			<h1 class="title">Install</h1>
-			<pre><code class="language-bash">$ cargo install skycrane --locked</code></pre>
+<section class="section">
+	<div class="columns">
+		<div class="column">
+			<div class="box is-rounded">
+				<div class="hero is-small is-rounded">
+					<div class="hero-body">
+						<h1 class="title">Install</h1>
+						<pre><code class="language-bash">$ cargo install skycrane --locked</code></pre>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</section>

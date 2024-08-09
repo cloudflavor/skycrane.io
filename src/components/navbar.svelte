@@ -1,6 +1,6 @@
 <nav class="navbar main-navbar is-fixed-top" aria-label="main navigation">
 	<div class="navbar-brand">
-		<a class="navbar-item is-size-4" href="/">
+		<a class="navbar-item navbar-logo is-size-4" href="/">
 			<img class="mr-4" src="/images/skycrane.svg" alt="Skycrane logo" />
 			<span class="has-text-light-green">Skycrane</span>
 		</a>
