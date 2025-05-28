@@ -72,12 +72,14 @@
 
 <style>
 	/* Improve the appearance of links and spacing */
-	.content a {
+	.content a.has-text-light-green {
+		color: #9EDF50 !important;
 		text-decoration: underline;
 	}
 	
-	.content a:hover {
+	.content a.has-text-light-green:hover {
 		opacity: 0.9;
+		color: #9EDF50 !important;
 	}
 	
 	h1, h2 {
