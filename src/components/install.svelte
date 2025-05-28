@@ -1,13 +1,22 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
-	import 'prismjs';
-	import 'prismjs/themes/prism.css';
-	import 'prismjs/components/prism-bash.min.js';
-	import Prism from 'prismjs';
-
-	onMount(() => {
-		Prism.highlightAll();
+	onMount(async () => {
+		if (browser) {
+			// Dynamically import PrismJS only on the client side
+			const [
+				{ default: Prism },
+				_prismCSS,
+				_prismBash
+			] = await Promise.all([
+				import('prismjs'),
+				import('prismjs/themes/prism.css'),
+				import('prismjs/components/prism-bash.min.js')
+			]);
+			
+			Prism.highlightAll();
+		}
 	});
 </script>
 
