@@ -22,17 +22,9 @@
 			Prism.highlightAll();
 		}
 	});
-</script>
 
-<section class="section">
-	<div class="columns">
-		<div class="column">
-			<div class="content has-text-white">
-				<h2 class="has-text-light-green">Example: Hetzner Plugin Specification</h2>
-				
-				<h3 class="has-text-light-green">base.star</h3>
-				<p>Defines the plugin module, capabilities, and file system mounts:</p>
-				<pre><code class="language-python">"""
+	// Pre-escaped HTML code blocks
+	const baseStarCode = `"""
 Hetzner infrastructure as Code
 
 This plugin provides a way to interact with Hetzner Cloud API and manage
@@ -96,11 +88,9 @@ module(
             ),
         ],
     ),
-)</code></pre>
+)`;
 
-				<h3 class="has-text-light-green">Plugin Implementation (lib.rs)</h3>
-				<p>Rust implementation of the Hetzner plugin:</p>
-				<pre><code class="language-rust">use skyforge_sdk::skyforge_plugin;
+	const libRsCode = `use skyforge_sdk::skyforge_plugin;
 
 struct Hetzner;
 use exports::cloudflavor::skyforge::plugin_api::Error as ApiError;
@@ -115,7 +105,22 @@ impl SkyforgePlugin for Hetzner {
         println!("Config: {:?}", config);
         Ok(())
     }
-}</code></pre>
+}`;
+</script>
+
+<section class="section">
+	<div class="columns">
+		<div class="column">
+			<div class="content has-text-white">
+				<h2 class="has-text-light-green">Example: Hetzner Plugin Specification</h2>
+				
+				<h3 class="has-text-light-green">base.star</h3>
+				<p>Defines the plugin module, capabilities, and file system mounts:</p>
+				<pre><code class="language-python">{@html baseStarCode}</code></pre>
+
+				<h3 class="has-text-light-green">Plugin Implementation (lib.rs)</h3>
+				<p>Rust implementation of the Hetzner plugin:</p>
+				<pre><code class="language-rust">{@html libRsCode}</code></pre>
 			</div>
 		</div>
 	</div>
