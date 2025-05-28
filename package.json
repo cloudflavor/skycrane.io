@@ -9,13 +9,13 @@
         "deploy": "yarn run build && wrangler pages deploy .svelte-kit/cloudflare"
     },
     "devDependencies": {
-        "@sveltejs/adapter-cloudflare": "^4.0",
-        "@sveltejs/kit": "^2.8.3",
-        "@sveltejs/vite-plugin-svelte": "^3.0.0",
+        "@sveltejs/adapter-cloudflare": "^7.0",
+        "@sveltejs/kit": "^2.21.1",
+        "@sveltejs/vite-plugin-svelte": "^5.0.3",
         "sass": "^1.69.6",
         "svelte": "^4.2.19",
-        "vite": "^5.4.19",
-        "wrangler": "^3.22.2"
+        "vite": "^6.3.5",
+        "wrangler": "^4.17.0"
     },
     "type": "module",
     "dependencies": {
@@ -23,6 +23,6 @@
         "@fontsource/inter": "^5.0.20",
         "@fortawesome/fontawesome-free": "^6.6.0",
         "bulma": "^1.0.2",
-        "prismjs": "^1.29.0"
+        "prismjs": "^1.30.0"
     }
 }
