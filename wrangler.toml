@@ -1,0 +1,26 @@
+name = "skycrane-io"
+main = ".svelte-kit/cloudflare/_worker.js"
+compatibility_date = "2025-08-03"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+binding = "ASSETS"
+directory = ".svelte-kit/cloudflare"
+
+[observability]
+enabled = true
+
+[placement]
+mode = "smart"
+
+[env.prod]
+routes = [
+  { pattern = "skycrane.io", zone_name = "skycrane.io", custom_domain = true },
+  { pattern = "www.skycrane.io", zone_name = "skycrane.io", custom_domain = true },
+]
+vars = { ENVIRONMENT = "prod" }
+
+[env.stg]
+route = { pattern = "preview.skycrane.io", custom_domain = true }
+workers_dev = false
+vars = { ENVIRONMENT = "stg" }

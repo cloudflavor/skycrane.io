@@ -1,0 +1,420 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Primary Greens from SVG */
+  --color-skycrane-green: #1ed494;
+  --color-skycrane-green-dark: #17b383;
+  --color-skycrane-green-light: #89e12a;
+  --color-skycrane-green-accent: #5cbf05;
+  
+  /* Navy Blues from SVG */
+  --color-skycrane-navy: #0c515f;
+  --color-skycrane-navy-dark: #065264;
+  
+  /* Grays from SVG */
+  --color-skycrane-gray: #d4e8e9;
+  --color-skycrane-gray-light: #dbeff1;
+  
+  /* Extended Palette */
+  --color-skycrane-navy-darker: #032b34;
+  --color-skycrane-navy-light: #0e6375;
+  --color-skycrane-green-50: #f0fdf8;
+  --color-skycrane-green-100: #dcfce7;
+  --color-skycrane-navy-50: #f0f9ff;
+  --color-skycrane-navy-100: #e0f2fe;
+}
+
+/* Custom utilities */
+@layer utilities {
+  /* Perspective for 3D effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  
+  /* Glow effects */
+  .glow-green {
+    box-shadow: 0 0 20px rgba(30, 212, 148, 0.5);
+  }
+  
+  .glow-navy {
+    box-shadow: 0 0 20px rgba(12, 81, 95, 0.5);
+  }
+  
+  /* Noise texture overlay */
+  .noise-overlay {
+    position: relative;
+    isolation: isolate;
+  }
+  
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.29' numOctaves='4' seed='5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* Custom gradients and patterns */
+@layer base {
+  .gradient-mesh {
+    background-image: 
+      radial-gradient(at 40% 20%, var(--color-skycrane-green-light) 0, transparent 50%),
+      radial-gradient(at 80% 0%, var(--color-skycrane-green) 0, transparent 50%),
+      radial-gradient(at 0% 50%, var(--color-skycrane-navy-light) 0, transparent 50%),
+      radial-gradient(at 80% 50%, var(--color-skycrane-green-accent) 0, transparent 50%),
+      radial-gradient(at 0% 100%, var(--color-skycrane-navy) 0, transparent 50%);
+  }
+  
+  /* Geometric shapes background */
+  .geometric-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .geometric-bg::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(30, 212, 148, 0.03) 35px, rgba(30, 212, 148, 0.03) 70px),
+      repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(92, 191, 5, 0.03) 35px, rgba(92, 191, 5, 0.03) 70px);
+  }
+  
+  .gradient-radial-green {
+    background: radial-gradient(ellipse at center, var(--color-skycrane-green) 0%, transparent 70%);
+  }
+  
+  .gradient-radial-navy {
+    background: radial-gradient(ellipse at center, var(--color-skycrane-navy) 0%, transparent 70%);
+  }
+  
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, currentColor 0%, transparent 70%);
+  }
+  
+  .pattern-dots {
+    background-image: radial-gradient(circle, var(--color-skycrane-gray) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .pattern-grid {
+    background-image: 
+      linear-gradient(var(--color-skycrane-gray) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-skycrane-gray) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .shape-blob {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    filter: blur(40px);
+  }
+  
+  .shape-circle {
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+  
+  .animate-blob {
+    animation: blob 20s infinite;
+  }
+  
+  .animate-blob-slow {
+    animation: blob 30s infinite;
+  }
+  
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1) rotate(120deg);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9) rotate(240deg);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1) rotate(360deg);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.5);
+    }
+  }
+  
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+  
+  .animate-gradient {
+    animation: gradient-shift 15s ease infinite;
+    background-size: 200% 200%;
+  }
+  
+  /* Solid card effects */
+  .card-solid {
+    background: var(--color-skycrane-navy);
+    border: 1px solid var(--color-skycrane-green-dark);
+  }
+  
+  .card-solid-dark {
+    background: var(--color-skycrane-navy-dark);
+    border: 1px solid var(--color-skycrane-green-dark);
+  }
+  
+  /* Card depth effects */
+  .card-elevated {
+    box-shadow: 
+      0 0 0 1px rgba(30, 212, 148, 0.1),
+      0 1px 2px 0 rgba(0, 0, 0, 0.05),
+      0 4px 8px -2px rgba(0, 0, 0, 0.1),
+      0 16px 24px -8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+  
+  .card-hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 0 0 1px rgba(30, 212, 148, 0.2),
+      0 1px 2px 0 rgba(0, 0, 0, 0.05),
+      0 12px 24px -4px rgba(0, 0, 0, 0.15),
+      0 32px 48px -12px rgba(0, 0, 0, 0.2),
+      0 0 40px rgba(30, 212, 148, 0.1);
+  }
+  
+  /* macOS window styles */
+  .macos-window {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .macos-header {
+    background: #2a2a2a;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  
+  .macos-titlebar {
+    background: #2d2d2d;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  
+  .macos-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .macos-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .macos-button-red {
+    background: #ff5f56;
+  }
+  
+  .macos-button-yellow {
+    background: #ffbd2e;
+  }
+  
+  .macos-button-green {
+    background: #27c93f;
+  }
+  
+  .macos-content {
+    padding: 20px;
+    background: #1e1e1e;
+    overflow-x: auto;
+  }
+  
+  .macos-content pre {
+    margin: 0;
+  }
+  
+  .macos-content code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  /* Code block styling */
+  pre code {
+    display: block;
+    color: #d4d4d4;
+  }
+  
+  /* Better code contrast */
+  .bg-skycrane-navy pre code {
+    color: #e0e0e0;
+  }
+  
+  .bg-skycrane-navy-dark pre code {
+    color: #e0e0e0;
+  }
+  
+  .bg-black pre code {
+    color: var(--color-skycrane-green-light);
+  }
+  
+  /* Python/Starlark syntax highlighting */
+  .code-python .keyword {
+    color: #569cd6;
+    font-weight: 600;
+  }
+  
+  .code-python .string {
+    color: #ce9178;
+  }
+  
+  .code-python .comment {
+    color: #6a9955;
+    font-style: italic;
+  }
+  
+  .code-python .function {
+    color: #dcdcaa;
+  }
+  
+  .code-python .number {
+    color: #b5cea8;
+  }
+  
+  .code-python .operator {
+    color: #d4d4d4;
+  }
+  
+  .code-python .builtin {
+    color: #4ec9b0;
+  }
+  
+  /* Rust syntax highlighting */
+  .code-rust .keyword {
+    color: #569cd6;
+    font-weight: 600;
+  }
+  
+  .code-rust .string {
+    color: #ce9178;
+  }
+  
+  .code-rust .comment {
+    color: #6a9955;
+    font-style: italic;
+  }
+  
+  .code-rust .function {
+    color: #dcdcaa;
+  }
+  
+  .code-rust .macro {
+    color: #4ec9b0;
+  }
+  
+  .code-rust .type {
+    color: #4ec9b0;
+  }
+  
+  /* Bash syntax highlighting */
+  .code-bash .comment {
+    color: #6a9955;
+  }
+  
+  .code-bash .string {
+    color: #ce9178;
+  }
+  
+  .code-bash .variable {
+    color: #9cdcfe;
+  }
+  
+  .code-bash .keyword {
+    color: #569cd6;
+  }
+  
+  /* Text gradients */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-skycrane-green) 0%, var(--color-skycrane-green-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-navy {
+    background: linear-gradient(135deg, var(--color-skycrane-navy) 0%, var(--color-skycrane-navy-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Background patterns */
+  .bg-circuit {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231ed494' stroke-width='0.5' opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg-topography {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M0 20c20 0 20-20 40-20s20 20 40 20 20-20 40-20v20c-20 0-20 20-40 20s-20-20-40-20-20 20-40 20z' fill='%231ed494' opacity='0.05'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+  
+  /* Animated background gradients */
+  .bg-gradient-animated {
+    background: linear-gradient(-45deg, var(--color-skycrane-navy-darker), var(--color-skycrane-navy), var(--color-skycrane-green-dark), var(--color-skycrane-green));
+    background-size: 400% 400%;
+  }
+}
