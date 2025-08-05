@@ -54,7 +54,7 @@
           <a href="#plugins" class="text-sm font-medium text-white hover:text-skycrane-green transition-colors">Plugins</a>
           <a href="#architecture" class="text-sm font-medium text-white hover:text-skycrane-green transition-colors">Architecture</a>
           <a href="#security" class="text-sm font-medium text-white hover:text-skycrane-green transition-colors">Security</a>
-          <a href="https://github.com/skycraft/skycrane" 
+          <a href="https://github.com/cloudflavor/skycrane" 
              class="px-4 py-1.5 bg-skycrane-green text-skycrane-navy-darker font-medium text-sm rounded hover:bg-skycrane-green-light transition-colors">
             Get Started
           </a>
