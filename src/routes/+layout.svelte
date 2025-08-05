@@ -1,39 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import '../app.css';
 
-	import Navbar from '../components/navbar.svelte';
-	import Footer from '../components/footer.svelte';
-
-	onMount(() => {
-		document.title = 'Skycrane';
-		document.documentElement.setAttribute('data-theme', 'light');
-	});
+	let { children } = $props();
 </script>
 
-<div class="area is-flex is-flex-direction-column">
-	<ul class="circles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-	<section class="section">
-		<Navbar />
-	</section>
-	<section class="section pt-0">
-		<slot />
-	</section>
-	<Footer />
-</div>
-
-<style lang="scss">
-	@import '/styles/global.scss';
-</style>
+{@render children()}
